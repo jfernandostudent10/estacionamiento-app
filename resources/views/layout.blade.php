@@ -29,7 +29,12 @@
             <div class="user-container d-flex">
                 <a href="#" class="d-flex user position-relative" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img class="profile" alt="profile" src="https://class.utp.edu.pe/static/media/student.42525dea.svg" />
-                    <div class="name text-black">Lisa Jackson</div>
+                    <div class="name text-black">
+                        {{ Auth::user()->name }} <br>
+                        <span class="mt-1">
+                            {{ Auth::user()->getCurrentRoles() }}
+                        </span>
+                    </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end user-menu wide">
                     <div class="row mb-1 ms-0 me-0">

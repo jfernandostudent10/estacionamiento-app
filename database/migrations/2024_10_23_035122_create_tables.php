@@ -48,8 +48,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vehicles');
-        Schema::dropIfExists('parking_sites');
         Schema::dropIfExists('parking_reserved');
+        Schema::dropIfExists('parking_sites');
+        Schema::dropIfExists('vehicles');
     }
 };
