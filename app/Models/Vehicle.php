@@ -65,14 +65,19 @@ class Vehicle extends Model
         });
     }
 
-    public function getDisabledPersonAttribute($value)
+    /*public function getDisabledPersonAttribute($value)
     {
         return $value ? 'Si' : 'No';
+    }*/
+
+    public function getDisabledPersonLabel()
+    {
+        return $this->disabled_person ? 'Si' : 'No';
     }
 
-    public function getHasConadisDistinctiveAttribute($value)
+    public function getHasConadisDistinctiveLabel()
     {
-        return $value ? 'Si' : 'No';
+        return $this->has_conadis_distinctive ? 'Si' : 'No';
     }
 
     public function getApplicationDateAttribute($value)
@@ -80,14 +85,14 @@ class Vehicle extends Model
         return Carbon::parse($value)->format('m-d-Y');
     }
 
-    public function getIsApprovedAttribute($value)
+    public function getIsApprovedLabel()
     {
-        return $value ? 'Si' : 'No';
+        return $this->is_approved ? 'Si' : 'No';
     }
 
-    public function getApprovedByAttribute($value)
+    public function getApprovedByLabel()
     {
-        return $value ? User::find($value)->name : '-';
+        return $this->approved_by ? User::find($this->approved_by)->name : '-';
     }
 
 	public function user()

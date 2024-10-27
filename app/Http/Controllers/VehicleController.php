@@ -40,7 +40,7 @@ class VehicleController extends Controller
         Vehicle::create($request->validated());
 
         return Redirect::route('vehicles.index')
-            ->with('success', 'Vehicle created successfully.');
+            ->with('success', 'Vehiculo creado correctamente');
     }
 
     /**
@@ -71,7 +71,7 @@ class VehicleController extends Controller
         $vehicle->update($request->validated());
 
         return Redirect::route('vehicles.index')
-            ->with('success', 'Vehicle updated successfully');
+            ->with('success', 'Vehiculo actualizado correctamente');
     }
 
     public function destroy($id): RedirectResponse
@@ -79,6 +79,6 @@ class VehicleController extends Controller
         Vehicle::find($id)->delete();
 
         return Redirect::route('vehicles.index')
-            ->with('success', 'Vehicle deleted successfully');
+            ->with('success', 'Vehiculo eliminado correctamente');
     }
 }

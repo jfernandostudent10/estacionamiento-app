@@ -30,11 +30,11 @@
                                 </div>
                                 <div class="form-group mb-2 mb20">
                                     <strong>¿Persona con discapacidad?:</strong>
-                                    {{ $vehicle->disabled_person }}
+                                    {{ $vehicle->getDisabledPersonLabel() }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
                                     <strong>¿Cuenta con distintivo vehicular otorgado por el conadis?:</strong>
-                                    {{ $vehicle->has_conadis_distinctive }}
+                                    {{ $vehicle->getHasConadisDistinctiveLabel() }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
                                     <strong>Fecha de registro:</strong>
@@ -42,11 +42,11 @@
                                 </div>
                                 <div class="form-group mb-2 mb20">
                                     <strong>¿Está aprobado?:</strong>
-                                    {{ $vehicle->is_approved }}
+                                    {{ $vehicle->getIsApprovedLabel() }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
                                     <strong>Aprobado por:</strong>
-                                    {{ $vehicle->approved_by }}
+                                    {{ $vehicle->getApprovedByLabel() }}
                                 </div>
 
                     </div>

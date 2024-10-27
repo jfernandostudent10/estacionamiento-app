@@ -51,11 +51,11 @@
                                         <tr>
 										<td >{{ $vehicle->vehicle_type }}</td>
 										<td >{{ $vehicle->plate }}</td>
-										<td >{{ $vehicle->disabled_person }}</td>
-										<td >{{ $vehicle->has_conadis_distinctive }}</td>
+										<td >{{ $vehicle->getDisabledPersonLabel() }}</td>
+										<td >{{ $vehicle->getHasConadisDistinctiveLabel() }}</td>
 										<td >{{ $vehicle->application_date }}</td>
-										<td >{{ $vehicle->is_approved }}</td>
-										<td >{{ $vehicle->approved_by }}</td>
+										<td >{{ $vehicle->getIsApprovedLabel() }}</td>
+										<td >{{ $vehicle->getApprovedByLabel() }}</td>
 
                                             <td>
                                                 <form action="{{ route('vehicles.destroy', $vehicle->id) }}" method="POST">
