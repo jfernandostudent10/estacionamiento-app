@@ -67,7 +67,7 @@
                     <div class="mb-3 filled form-group tooltip-end-top">
                         <i data-acorn-icon="lock-off"></i>
                         <input class="form-control pe-7" name="password" type="password" placeholder="@lang('lang.password')" />
-                        <a class="text-small position-absolute t-3 e-3" href="/forgot-password">@lang('lang.forgot')</a>
+                        <a class="text-small position-absolute t-3 e-3" href="https://contrasena.utp.edu.pe/Recuperacion/OlvideMiClave.aspx">@lang('lang.forgot')</a>
                     </div>
 
                     @error('password')

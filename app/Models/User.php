@@ -37,6 +37,13 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
+
+    const ROLE_SUPER_ADMIN = 'super-admin';
+    const ROLE_TEACHER = 'teacher';
+    const ROLE_STUDENT = 'student';
+
+
+
     protected function casts(): array
     {
         return [
