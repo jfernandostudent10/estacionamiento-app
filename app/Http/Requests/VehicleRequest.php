@@ -26,9 +26,6 @@ class VehicleRequest extends FormRequest
 			'plate' => 'required|string',
 			'disabled_person' => 'required',
 			'has_conadis_distinctive' => 'required',
-			'application_date' => 'required',
-			'is_approved' => 'required',
-			'user_id' => 'required',
         ];
     }
 }

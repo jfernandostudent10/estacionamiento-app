@@ -34,16 +34,14 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
-                                        
-									<th >Vehicle Type</th>
-									<th >Plate</th>
-									<th >Disabled Person</th>
-									<th >Has Conadis Distinctive</th>
-									<th >Application Date</th>
-									<th >Is Approved</th>
-									<th >Approved By</th>
-									<th >User Id</th>
+
+									<th >Tipo Vehículo</th>
+									<th >Placa</th>
+									<th >¿Persona con discapacidad?</th>
+									<th >¿Cuenta con distintivo vehicular otorgado por el conadis?</th>
+									<th >Fecha de registro</th>
+									<th >¿Está aprobado?</th>
+									<th >Aprobado por</th>
 
                                         <th></th>
                                     </tr>
@@ -51,8 +49,6 @@
                                 <tbody>
                                     @foreach ($vehicles as $vehicle)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
-                                            
 										<td >{{ $vehicle->vehicle_type }}</td>
 										<td >{{ $vehicle->plate }}</td>
 										<td >{{ $vehicle->disabled_person }}</td>
@@ -60,7 +56,6 @@
 										<td >{{ $vehicle->application_date }}</td>
 										<td >{{ $vehicle->is_approved }}</td>
 										<td >{{ $vehicle->approved_by }}</td>
-										<td >{{ $vehicle->user_id }}</td>
 
                                             <td>
                                                 <form action="{{ route('vehicles.destroy', $vehicle->id) }}" method="POST">
@@ -68,7 +63,7 @@
                                                     <a class="btn btn-sm btn-success" href="{{ route('vehicles.edit', $vehicle->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="event.preventDefault(); confirm('Are you sure to delete?') ? this.closest('form').submit() : false;"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="event.preventDefault(); confirm('Está seguro?') ? this.closest('form').submit() : false;"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
                                                 </form>
                                             </td>
                                         </tr>

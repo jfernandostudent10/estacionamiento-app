@@ -54,6 +54,42 @@ class Vehicle extends Model
 		'user_id'
 	];
 
+    // boot method
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($vehicle) {
+            $vehicle->application_date = Carbon::now();
+            $vehicle->user_id = auth()->id();
+        });
+    }
+
+    public function getDisabledPersonAttribute($value)
+    {
+        return $value ? 'Si' : 'No';
+    }
+
+    public function getHasConadisDistinctiveAttribute($value)
+    {
+        return $value ? 'Si' : 'No';
+    }
+
+    public function getApplicationDateAttribute($value)
+    {
+        return Carbon::parse($value)->format('m-d-Y');
+    }
+
+    public function getIsApprovedAttribute($value)
+    {
+        return $value ? 'Si' : 'No';
+    }
+
+    public function getApprovedByAttribute($value)
+    {
+        return $value ? User::find($value)->name : '-';
+    }
+
 	public function user()
 	{
 		return $this->belongsTo(User::class);

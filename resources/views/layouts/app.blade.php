@@ -104,11 +104,21 @@
                             </a>
                             <ul>
                                 <li>
-                                    <a href="Dashboard.GettingStarted.html">
+                                    <a href="{{ route('home') }}">
                                         <i data-acorn-icon="navigate-diagonal" class="icon d-none" data-acorn-size="18"></i>
-                                        <span class="label">Getting Started</span>
+                                        <span class="label">Home</span>
                                     </a>
                                 </li>
+
+                                @can('vehicles.index')
+                                    <li>
+                                        <a href="{{ route('vehicles.index') }}">
+                                            <i data-acorn-icon="car" class="icon d-none" data-acorn-size="18"></i>
+                                            <span class="label">Vehicles</span>
+                                        </a>
+                                    </li>
+                                @endcan
+
                             </ul>
                         </li>
                     </ul>

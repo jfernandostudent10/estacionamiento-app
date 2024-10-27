@@ -21,36 +21,32 @@
                     <div class="card-body bg-white">
                         
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Vehicle Type:</strong>
+                                    <strong>Tipo Vehículo:</strong>
                                     {{ $vehicle->vehicle_type }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Plate:</strong>
+                                    <strong>Placa:</strong>
                                     {{ $vehicle->plate }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Disabled Person:</strong>
+                                    <strong>¿Persona con discapacidad?:</strong>
                                     {{ $vehicle->disabled_person }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Has Conadis Distinctive:</strong>
+                                    <strong>¿Cuenta con distintivo vehicular otorgado por el conadis?:</strong>
                                     {{ $vehicle->has_conadis_distinctive }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Application Date:</strong>
+                                    <strong>Fecha de registro:</strong>
                                     {{ $vehicle->application_date }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Is Approved:</strong>
+                                    <strong>¿Está aprobado?:</strong>
                                     {{ $vehicle->is_approved }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Approved By:</strong>
+                                    <strong>Aprobado por:</strong>
                                     {{ $vehicle->approved_by }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>User Id:</strong>
-                                    {{ $vehicle->user_id }}
                                 </div>
 
                     </div>
