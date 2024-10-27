@@ -48,6 +48,16 @@ class User extends Authenticatable
         return $this->roles()->get()->first()->name;
     }
 
+    public function parking_reserveds()
+    {
+        return $this->hasMany(ParkingReserved::class);
+    }
+
+    public function vehicles()
+    {
+        return $this->hasMany(Vehicle::class);
+    }
+
 
     protected function casts(): array
     {
