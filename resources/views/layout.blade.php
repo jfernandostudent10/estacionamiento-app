@@ -29,7 +29,7 @@
             <div class="user-container d-flex">
                 <a href="#" class="d-flex user position-relative" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img class="profile" alt="profile" src="https://class.utp.edu.pe/static/media/student.42525dea.svg" />
-                    <div class="name">Lisa Jackson</div>
+                    <div class="name text-black">Lisa Jackson</div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end user-menu wide">
                     <div class="row mb-1 ms-0 me-0">
@@ -55,15 +55,15 @@
             <!-- User Menu End -->
 
             <!-- Icons Menu Start -->
-            <ul class="list-unstyled list-inline text-center menu-icons">
+            {{--<ul class="list-unstyled list-inline text-center menu-icons">
                 <li class="list-inline-item">
-                    <a href="#" id="colorButton">
+                    <a href="#" id="colorButton" style="color: var(--dark-text-darker)">
                         <i data-acorn-icon="light-on" class="light" data-acorn-size="18"></i>
                         <i data-acorn-icon="light-off" class="dark" data-acorn-size="18"></i>
                     </a>
                 </li>
 
-            </ul>
+            </ul>--}}
             <!-- Icons Menu End -->
 
             <!-- Menu Start -->
