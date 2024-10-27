@@ -16,6 +16,7 @@ class RolesAndPermissionsSeeder extends Seeder
     public function run(): void
     {
         Role::UpdateOrCreate(['name' => User::ROLE_SUPER_ADMIN], ['name' => User::ROLE_SUPER_ADMIN]);
+        $roleAdministrative = Role::UpdateOrCreate(['name' => User::ROLE_ADMINISTRATIVE], ['name' => User::ROLE_ADMINISTRATIVE]);
         $roleTeacher = Role::UpdateOrCreate(['name' => User::ROLE_TEACHER], ['name' => User::ROLE_TEACHER]);
         $roleSStudent = Role::UpdateOrCreate(['name' => User::ROLE_STUDENT], ['name' => User::ROLE_STUDENT]);
 
@@ -26,6 +27,6 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::UpdateOrCreate(['name' => 'vehicles.edit'], ['name' => 'vehicles.edit'])->syncRoles([$roleTeacher, $roleSStudent]);
         Permission::UpdateOrCreate(['name' => 'vehicles.destroy'], ['name' => 'vehicles.destroy'])->syncRoles([$roleTeacher, $roleSStudent]);
         //
-        //Permission::UpdateOrCreate(['name' => 'vehicles.approve'], ['name' => 'vehicles.approve'])->syncRoles([$roleTeacher]);
+        Permission::UpdateOrCreate(['name' => 'approve-vehicles.index'], ['name' => 'approve-vehicles.index'])->syncRoles([$roleAdministrative]);
     }
 }

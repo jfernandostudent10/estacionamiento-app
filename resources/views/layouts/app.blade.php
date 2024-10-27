@@ -114,7 +114,15 @@
                                     <li>
                                         <a href="{{ route('vehicles.index') }}">
                                             <i data-acorn-icon="car" class="icon d-none" data-acorn-size="18"></i>
-                                            <span class="label">Vehicles</span>
+                                            <span class="label">Vehículos</span>
+                                        </a>
+                                    </li>
+                                @endcan
+                                @can('approve-vehicles.index')
+                                    <li>
+                                        <a href="{{ route('approve-vehicles.index') }}">
+                                            <i data-acorn-icon="car" class="icon d-none" data-acorn-size="18"></i>
+                                            <span class="label">Aprobar Vehículos</span>
                                         </a>
                                     </li>
                                 @endcan
