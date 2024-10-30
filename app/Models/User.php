@@ -43,6 +43,8 @@ class User extends Authenticatable
     const ROLE_TEACHER = 'teacher';
     const ROLE_STUDENT = 'student';
     const ROLE_ADMINISTRATIVE = 'administrative';
+    const ROLE_VIGILANT = 'vigilant';
+
 
     public function getCurrentRoles()
     {

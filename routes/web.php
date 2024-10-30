@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ApproveVehicleController;
 use App\Http\Controllers\VehicleController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -16,7 +17,8 @@ Auth::routes([
     'confirm' => false,
 ]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::resource('vehicles', VehicleController::class);
-Route::resource('approve-vehicles', ApproveVehicleController::class);
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource('vehicles', VehicleController::class);
+    Route::resource('approve-vehicles', ApproveVehicleController::class);
+});
