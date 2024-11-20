@@ -48,7 +48,7 @@ class User extends Authenticatable
 
     public function getCurrentRoles()
     {
-        return $this->roles()->get()->first()->name;
+        return $this->roles()->get()->first()?->name;
     }
 
     public function parking_reserveds()
