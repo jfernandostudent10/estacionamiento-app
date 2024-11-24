@@ -18,7 +18,7 @@ Auth::routes([
 ]);
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/home', \App\Livewire\Home::class)->name('home');
     Route::resource('vehicles', VehicleController::class);
     Route::resource('approve-vehicles', ApproveVehicleController::class);
 });

@@ -136,7 +136,8 @@
                 <!-- Page Content Start -->
                 <div class="col">
                     <!-- Title and Top Buttons Start -->
-                    @yield('content')
+                    {{--@yield('content')--}}
+                    {{ $slot }}
                     <!-- User Cards End -->
                 </div>
                 <!-- Page Content End -->

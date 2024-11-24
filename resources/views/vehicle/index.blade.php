@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Vehicles
+    Vehiculos
 @endsection
 
 @section('content')

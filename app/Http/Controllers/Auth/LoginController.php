@@ -46,11 +46,12 @@ class LoginController extends Controller
         $email = $request->get('email');
         $password = $request->get('password');
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            if (in_array(strtolower($email[0]), ['u', 'a', 'c'])) {
+            if (in_array(strtolower($email[0]), ['u', 'a', 'c', 'v'])) {
                 $role = match (strtolower($email[0])) {
                     'u' => User::ROLE_STUDENT,
                     'a' => User::ROLE_ADMINISTRATIVE,
                     'c' => User::ROLE_TEACHER,
+                    'v' => User::ROLE_VIGILANT,
                 };
                 $verifyEmail = $email . '@utp.edu.pe';
                 $user = \App\Models\User::where('email', $verifyEmail)->first();
