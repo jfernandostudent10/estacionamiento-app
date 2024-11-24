@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ParkingSite;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $parkingSites = ParkingSite::wheredate('date', Carbon::now())->get();
+        // count with status 0
+        $availableParkingSites = $parkingSites->where('status', 0)->count();
+        return view('home', compact('parkingSites', 'availableParkingSites'));
     }
 }
