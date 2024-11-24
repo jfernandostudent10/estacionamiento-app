@@ -11,9 +11,10 @@ class Home extends Component
 
     public function updateStatus($id)
     {
-        $parkingSite = ParkingSite::find($id);
+        $this->dispatch('open-modal-parking-reserved-user')->to(ModalParkingReservedUser::class);
+        /*$parkingSite = ParkingSite::find($id);
         $parkingSite->status = !$parkingSite->status;
-        $parkingSite->save();
+        $parkingSite->save();*/
     }
 
     public function render()

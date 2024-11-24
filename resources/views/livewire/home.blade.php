@@ -38,4 +38,10 @@
         @endforeach
 
     </div>
+
+    @push('modals')
+        @role('vigilant')
+            @livewire('modal-parking-reserved-user')
+        @endrole
+    @endpush
 </div>

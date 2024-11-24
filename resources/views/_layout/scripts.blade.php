@@ -21,3 +21,14 @@
 <script src="{{ asset('js/common.js') }}"></script>
 <script src="{{ asset('js/scripts.js') }}"></script>
 <!-- Page Specific Scripts End -->
+
+@stack('modals')
+@livewireScripts
+<script>
+    Livewire.on('global-dispatch-modal', (event) => {
+        const globalModal = $('#' + event.modal)
+        if (globalModal.length) {
+            globalModal.modal(event.action)
+        }
+    });
+</script>

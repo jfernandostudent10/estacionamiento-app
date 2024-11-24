@@ -19,5 +19,5 @@
 <link rel="stylesheet" href="/css/main.css"/>--}}
 <!-- Template Base Styles End -->
 <script src="{{ asset('js/base/loader.js') }}"></script>
-
+@livewireStyles
 @vite(['resources/css/app.css', 'resources/js/app.js'])
