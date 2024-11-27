@@ -1,10 +1,11 @@
-@extends('layouts.app')
 
-@section('template_title')
-    Vehiculos
-@endsection
+<x-layouts.app>
 
-@section('content')
+    <x-slot name="title">
+        {{ __('Vehículos') }}
+    </x-slot>
+
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -77,4 +78,4 @@
             </div>
         </div>
     </div>
-@endsection
+</x-layouts.app>

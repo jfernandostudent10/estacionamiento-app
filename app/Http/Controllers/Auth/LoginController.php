@@ -53,7 +53,7 @@ class LoginController extends Controller
                     'c' => User::ROLE_TEACHER,
                     'v' => User::ROLE_VIGILANT,
                 };
-                $verifyEmail = $email . '@utp.edu.pe';
+                $verifyEmail = $email . User::DOMAIN_UTP;
                 $user = \App\Models\User::where('email', $verifyEmail)->first();
                 if (is_null($user)) {
                     $user = \App\Models\User::factory()->create([

@@ -44,6 +44,8 @@ class User extends Authenticatable
     const ROLE_STUDENT = 'student';
     const ROLE_ADMINISTRATIVE = 'administrative';
     const ROLE_VIGILANT = 'vigilant';
+    const DOMAIN_UTP = '@utp.edu.pe';
+
 
 
     public function getCurrentRoles()
