@@ -52,5 +52,4 @@
             </div>
         </div>
     </section>
-@endsection
 </x-layouts.app>
