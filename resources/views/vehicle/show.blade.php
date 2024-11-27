@@ -1,4 +1,4 @@
-<x-layouts.app>
+<x-app-layout>
 
     <x-slot name="title">
         Mostrar Vehículo

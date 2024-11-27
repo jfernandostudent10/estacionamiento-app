@@ -1,4 +1,4 @@
-<x-layouts.app>
+<x-app-layout>
 
     <x-slot name="title">
         Crear Vehiculo
@@ -24,4 +24,4 @@
         </div>
     </section>
 @endsection
-</x-layouts.app>
+</x-app-layout>
