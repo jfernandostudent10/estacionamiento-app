@@ -1,4 +1,4 @@
-<div>
+<div wire:poll.60s>
     <div class="page-title-container mb-3">
         <div class="row">
             <!-- Title Start -->
@@ -32,6 +32,7 @@
                     @endrole
                     <div class="card-body {{ $site->status ? 'bg-danger-subtle' : 'bg-success-subtle' }} rounded">
                         <div class="display-1 text-primary text-center">{{ str_pad($site->number, 2, "0", STR_PAD_LEFT) }}</div>
+                        <div class="display-6 text-primary text-center">{{ $site->parking_reserveds->last()?->start_time->diffForHumans() }}</div>
                     </div>
                 </div>
             </div>
