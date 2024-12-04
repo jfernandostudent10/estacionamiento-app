@@ -47,6 +47,8 @@ class ParkingReserved extends Model
 		'end_time'
 	];
 
+
+
 	public function parking_site()
 	{
 		return $this->belongsTo(ParkingSite::class);

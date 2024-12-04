@@ -13,7 +13,7 @@ class ModalParkingReservedUser extends Component
 {
     use GlobalActionTrait;
 
-    public string $modalName, $modalTitle;
+    public string $modalName, $modalTitle = 'Bloquear Estacionamiento';
     public $userCode, $userName;
     public array $vehicles = [];
     public $user_id, $vehicle_id;
@@ -22,14 +22,23 @@ class ModalParkingReservedUser extends Component
     public function mount()
     {
         $this->modalName = 'form-' . uniqid();
-        $this->modalTitle = 'Bloquear Estacionamiento';
+        $this->parkingSite = new ParkingSite();
     }
 
     #[On('open-modal-parking-reserved-user')]
     public function open($idSite)
     {
-        $this->reset(['userCode', 'userName', 'vehicles', 'user_id', 'vehicle_id']);
-        $this->parkingSite = ParkingSite::findOrFail($idSite);
+        $this->reset(['userCode', 'userName', 'vehicles', 'user_id', 'vehicle_id', 'modalTitle']);
+        $this->parkingSite = ParkingSite::with('parking_reserveds')->findOrFail($idSite);
+        if ($this->parkingSite->status) {
+            $this->modalTitle = 'Desbloquear Estacionamiento';
+            $this->vehicles = $this->parkingSite->parking_reserveds->last()->user->getVehiclesSelectOptions();
+            $info = $this->parkingSite->parking_reserveds->last();
+            $this->userName = $info->user->name;
+            $this->user_id = $info->user_id;
+            $this->userCode = $info->user->email;
+            $this->vehicle_id = $info->vehicle_id;
+        }
         $this->globalShowModal($this->modalName);
     }
 
@@ -58,12 +67,10 @@ class ModalParkingReservedUser extends Component
         $this->userName = $user->name;
         $this->user_id = $user->id;
 
-        $this->vehicles = $user->vehicles->mapWithKeys(function ($vehicule) {
-            return [$vehicule->id => $vehicule->vehicle_type . ' - ' . $vehicule->plate];
-        })->toArray();
+        $this->vehicles = $user->getVehiclesSelectOptions();
     }
 
-    public function store()
+    public function lockSite()
     {
         $this->validate();
         $this->parkingSite->update(['status' => 1]);
@@ -74,6 +81,19 @@ class ModalParkingReservedUser extends Component
             'start_time' => now(),
         ]);
         $this->globalHideModal($this->modalName);
+        $this->dispatch('refresh-parking-reserved-user-list')->to(Home::class);
+    }
+
+    public function unlockSite()
+    {
+        $this->parkingSite->update(['status' => 0]);
+        $this->parkingSite->parking_reserveds->last()->update(['end_time' => now()]);
+        $this->globalHideModal($this->modalName);
+        $this->dispatch('refresh-parking-reserved-user-list')->to(Home::class);
+    }
+
+    public function close()
+    {
         $this->dispatch('refresh-parking-reserved-user-list')->to(Home::class);
     }
 

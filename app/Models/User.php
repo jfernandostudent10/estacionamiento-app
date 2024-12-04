@@ -52,6 +52,17 @@ class User extends Authenticatable
         return $this->parking_reserveds()->whereDate('start_time', '<=', now())->whereNull('end_time')->exists();
     }
 
+    public function getVehiclesSelectOptions(): array
+    {
+        if ($this->vehicles->isEmpty()) {
+            return [];
+        }
+
+        return $this->vehicles->mapWithKeys(function ($vehicule) {
+            return [$vehicule->id => $vehicule->vehicle_type . ' - ' . $vehicule->plate];
+        })->toArray();
+    }
+
     public function getCurrentRoles()
     {
         return $this->roles()->get()->first()?->name;

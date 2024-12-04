@@ -31,7 +31,7 @@ class ParkingSite extends Model
 	protected $casts = [
 		'number' => 'int',
 		'date' => 'datetime',
-		'status' => 'int'
+		'status' => 'boolean'
 	];
 
 	protected $fillable = [
