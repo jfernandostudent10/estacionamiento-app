@@ -16,7 +16,8 @@ return [
     'use_form' => 'Utilice el formulario para registrarse',
     'if_member' => 'Si eres miembro por favor',
     'name' => 'Nombre',
-'Signup' => 'Regístrate',
+    'Signup' => 'Regístrate',
+    'select' => 'Seleccionar',
 
 
 
