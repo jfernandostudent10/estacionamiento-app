@@ -3,18 +3,24 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Vehicle;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
+
     /**
      * Seed the application's database.
      */
     public function run(): void
     {
         $this->call(RolesAndPermissionsSeeder::class);
-        // User::factory(10)->create();
+
+        /*User::factory(20)->create([
+            'email' => fn() => 'U' . fake()->unique()->randomNumber(8, true) . User::DOMAIN_UTP,
+        ])->has(Vehicle::factory()->count(3))->each(function ($user) {
+            $user->assignRole(User::ROLE_STUDENT);
+        });*/
 
         User::factory()->create([
             'name' => 'Admin User',
