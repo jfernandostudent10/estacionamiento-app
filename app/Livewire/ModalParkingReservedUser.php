@@ -37,20 +37,30 @@ class ModalParkingReservedUser extends Component
     {
         $this->validate([
             'userCode' => 'required',
+        ], [
+            'userCode.required' => 'El código es requerido',
         ]);
 
         $email = $this->userCode . User::DOMAIN_UTP;
-        $user = User::where('email', $email)->first();
-        if ($user) {
-            $this->userName = $user->name;
-            $user->load('vehicles');
-            $this->user_id = $user->id;
-            $this->vehicles = $user->vehicles->mapWithKeys(function ($vehicule) {
-                return [$vehicule->id => $vehicule->vehicle_type . ' - ' . $vehicule->plate];
-            })->toArray();
-        } else {
+
+        $user = User::with('vehicles')->where('email', $email)->first();
+
+        if (!$user) {
             $this->addError('user_id', 'Usuario no encontrado');
+            return;
         }
+
+        if ($user->hasActiveParkingReserved()) {
+            $this->addError('user_id', 'El usuario ya tiene un estacionamiento reservado');
+            return;
+        }
+
+        $this->userName = $user->name;
+        $this->user_id = $user->id;
+
+        $this->vehicles = $user->vehicles->mapWithKeys(function ($vehicule) {
+            return [$vehicule->id => $vehicule->vehicle_type . ' - ' . $vehicule->plate];
+        })->toArray();
     }
 
     public function store()

@@ -47,6 +47,10 @@ class User extends Authenticatable
     const DOMAIN_UTP = '@utp.edu.pe';
 
 
+    public function hasActiveParkingReserved()
+    {
+        return $this->parking_reserveds()->whereDate('start_time', '<=', now())->whereNull('end_time')->exists();
+    }
 
     public function getCurrentRoles()
     {
