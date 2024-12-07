@@ -18,7 +18,7 @@ class Home extends Component
     #[On('refresh-parking-reserved-user-list')]
     public function render()
     {
-        $parkingSites = ParkingSite::wheredate('date', Carbon::now()->format('Y-m-d'))->get();
+        $parkingSites = ParkingSite::all();
         $availableParkingSites = $parkingSites->where('status', 0)->count();
         return view('livewire.home', compact('parkingSites', 'availableParkingSites'));
     }

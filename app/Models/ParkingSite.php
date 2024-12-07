@@ -15,7 +15,6 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property int $id
  * @property int $number
- * @property Carbon $date
  * @property int $status
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -30,13 +29,11 @@ class ParkingSite extends Model
 
 	protected $casts = [
 		'number' => 'int',
-		'date' => 'datetime',
 		'status' => 'boolean'
 	];
 
 	protected $fillable = [
 		'number',
-		'date',
 		'status'
 	];
 
@@ -44,19 +41,7 @@ class ParkingSite extends Model
 
     public static function generateParkingSites()
     {
-        $date = Carbon::now();
 
-        if (ParkingSite::wheredate('date', $date)->exists()) {
-            return;
-        }
-
-        for ($i = 1; $i <= self::MAX_PARKING_SITES; $i++) {
-            ParkingSite::create([
-                'number' => $i,
-                'date' => $date,
-                'status' => 0
-            ]);
-        }
     }
 
 	public function parking_reserveds()

@@ -52,7 +52,11 @@ class ModalParkingReservedUser extends Component
 
         $email = $this->userCode . User::DOMAIN_UTP;
 
-        $user = User::with('vehicles')->where('email', $email)->first();
+        $user = User::where('email', $email)
+            ->with(['vehicles' => function ($query) {
+                $query->where('is_approved', 1);
+            }])
+            ->first();
 
         if (!$user) {
             $this->addError('user_id', 'Usuario no encontrado');
@@ -68,6 +72,9 @@ class ModalParkingReservedUser extends Component
         $this->user_id = $user->id;
 
         $this->vehicles = $user->getVehiclesSelectOptions();
+        if (empty($this->vehicles)) {
+            $this->addError('user_id', 'El usuario no tiene vehículos aprobados');
+        }
     }
 
     public function lockSite()

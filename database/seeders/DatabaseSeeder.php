@@ -41,5 +41,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Administrative User',
             'email' => 'administrative@example.com'
         ])->assignRole(User::ROLE_ADMINISTRATIVE);
+
+        $this->call(GenerateParkingSites::class);
     }
 }

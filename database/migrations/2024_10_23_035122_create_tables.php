@@ -27,7 +27,6 @@ return new class extends Migration
         Schema::create('parking_sites', function (Blueprint $table) {
             $table->id();
             $table->smallInteger('number');
-            $table->date('date');
             $table->tinyInteger('status')->default(0)->comment('0: Disponible, 1: ocupado');
             $table->timestamps();
         });
