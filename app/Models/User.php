@@ -46,6 +46,14 @@ class User extends Authenticatable
     const ROLE_VIGILANT = 'vigilant';
     const DOMAIN_UTP = '@utp.edu.pe';
 
+    const ROLES = [
+        self::ROLE_SUPER_ADMIN,
+        self::ROLE_TEACHER,
+        self::ROLE_STUDENT,
+        self::ROLE_ADMINISTRATIVE,
+        self::ROLE_VIGILANT,
+    ];
+
 
     public function hasActiveParkingReserved()
     {

@@ -18,6 +18,10 @@ return [
     'name' => 'Nombre',
     'Signup' => 'Regístrate',
     'select' => 'Seleccionar',
+    'list_student' => 'Lista de estudiantes',
+    'list_teacher' => 'Lista de profesores',
+    'list_vigilant' => 'Lista de vigilantes',
+    'list_administrative' => 'Lista de administrativos',
 
 
 

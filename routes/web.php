@@ -23,6 +23,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', \App\Livewire\Home::class)->name('home');
     Route::resource('vehicles', VehicleController::class);
     Route::resource('approve-vehicles', ApproveVehicleController::class);
+    // i have only table for users, i want "/users/students", "users/teachers", "users/vigilants"
+    Route::get('/users/{role}', function ($role) {
+        return view('users.index', ['role' => $role]);
+    })->name('users.index');
 });
 
 Route::get('/seeder', function () {
