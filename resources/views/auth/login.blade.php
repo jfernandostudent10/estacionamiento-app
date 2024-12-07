@@ -56,7 +56,7 @@
                     @csrf
                     <div class="mb-3 filled form-group tooltip-end-top">
                         <i data-acorn-icon="user"></i>
-                        <input class="form-control" placeholder="Código Utp" name="email" />
+                        <input class="form-control" placeholder="Código Utp" name="email" value="{{ old('email') }}" />
                     </div>
                     @error('email')
                     <span class="text-danger" role="alert">

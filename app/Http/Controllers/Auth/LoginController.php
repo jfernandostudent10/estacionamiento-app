@@ -64,9 +64,14 @@ class LoginController extends Controller
                         'email' => $user->email,
                         'password' => $password
                     ]);
+                } else {
+                    $request->merge([
+                        'email' => $user->email,
+                    ]);
                 }
             }
         }
+
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
         // the login attempts for this application. We'll key this by the username and
