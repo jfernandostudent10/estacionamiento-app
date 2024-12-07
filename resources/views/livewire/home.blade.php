@@ -19,13 +19,13 @@
     </div>
 
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
-        @foreach($parkingSites as $site)
+        @foreach($parkingSites as $key => $site)
             <div class="col mb-5">
                 <div class="card h-100">
                     @role('vigilant')
                     <span class="rounded-pill  me-1 position-absolute e-3 t-n2 z-index-1">
                         <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" {{ $site->status ? 'checked' : '' }} id="flexSwitchCheckChecked-{{ $loop->index }}" wire:change="updateStatus({{ $site->id }})">
+                        <input class="form-check-input" type="checkbox" {{--{{ $site->status ? 'checked' : '' }}--}} wire:model="sites.{{ $site->id }}" id="flexSwitchCheckChecked-{{ $loop->index }}" wire:change="updateStatus({{ $site->id }})">
                         <label class="form-check-label" for="flexSwitchCheckChecked-{{ $loop->index }}">{{ $site->status ? 'Ocupado' : 'Libre' }}</label>
                       </div>
                     </span>

@@ -28,7 +28,7 @@
         </x-slot>
 
         <x-slot name="modalFooter">
-            <x-button-cancel text="Cancelar" wire:click="close"/>
+            <x-button-cancel text="Cancelar"/>
             <x-button form="form-modal-parking-reserved-user">
                 {{ $this->parkingSite->status ? 'Liberar' : 'Ocupar' }}
             </x-button>

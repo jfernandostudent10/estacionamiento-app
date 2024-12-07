@@ -99,11 +99,6 @@ class ModalParkingReservedUser extends Component
         $this->dispatch('refresh-parking-reserved-user-list')->to(Home::class);
     }
 
-    public function close()
-    {
-        $this->dispatch('refresh-parking-reserved-user-list')->to(Home::class);
-    }
-
     public function rules()
     {
         return [
