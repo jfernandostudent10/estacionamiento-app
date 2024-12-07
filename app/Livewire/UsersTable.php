@@ -31,13 +31,13 @@ class UsersTable extends DataTableComponent
         return [
             /*Column::make("Id", "id")
                 ->sortable(),*/
-            Column::make("Name", "name")
+            Column::make("Nombre", "name")
                 ->sortable()->searchable(),
             Column::make("Email", "email")
                 ->sortable()->searchable(),
-            Column::make("Created at", "created_at")
+            Column::make("Creado", "created_at")
                 ->sortable(),
-            Column::make("Updated at", "updated_at")
+            Column::make("Actualizado", "updated_at")
                 ->sortable(),
         ];
     }
