@@ -25,13 +25,16 @@
                     @role('vigilant')
                     <span class="rounded-pill  me-1 position-absolute e-3 t-n2 z-index-1">
                         <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" {{--{{ $site->status ? 'checked' : '' }}--}} wire:model="sites.{{ $site->id }}" id="flexSwitchCheckChecked-{{ $loop->index }}" wire:change="updateStatus({{ $site->id }})">
+                        <input class="form-check-input" type="checkbox" wire:model="sites.{{ $site->id }}" id="flexSwitchCheckChecked-{{ $loop->index }}" wire:change="updateStatus({{ $site->id }})">
                         <label class="form-check-label" for="flexSwitchCheckChecked-{{ $loop->index }}">{{ $site->status ? 'Ocupado' : 'Libre' }}</label>
                       </div>
                     </span>
                     @endrole
                     <div class="card-body {{ $site->status ? 'bg-danger-subtle' : 'bg-success-subtle' }} rounded">
                         <div class="display-1 text-primary text-center">{{ str_pad($site->number, 2, "0", STR_PAD_LEFT) }}</div>
+                        @if($site->status && $site->parking_reserveds->last()?->user_id === auth()->id())
+                            <div class="display-4 text-primary text-center">Actualmente</div>
+                        @endif
                         <div class="display-6 text-primary text-center">{{ $site->status ?  $site->parking_reserveds->last()?->start_time->diffForHumans() : '' }}</div>
                     </div>
                 </div>
