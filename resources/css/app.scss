@@ -1,13 +1,14 @@
 @import "../font/CS-Interface/style.css";
-@import "../css/vendor/bootstrap.min.css";
-@import "../css/vendor/OverlayScrollbars.min.css";
-@import url('../sass/styles.scss');
+@import "./vendor/bootstrap.min.css";
+@import "./vendor/OverlayScrollbars.min.css";
+@import '../sass/styles.scss';
 
 /* custom */
 
 .bg-success-subtle {
     background-color: #d1e7dd !important;
 }
+
 
 .bg-danger-subtle {
     background-color: #f8d7da !important;

@@ -20,4 +20,4 @@
 <!-- Template Base Styles End -->
 <script src="{{ asset('js/base/loader.js') }}"></script>
 @livewireStyles
-@vite(['resources/css/app.css', 'resources/js/app.js'])
+@vite(['resources/css/app.scss', 'resources/js/app.js'])
