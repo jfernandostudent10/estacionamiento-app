@@ -44,6 +44,6 @@ Route::get('test/{email}/{status}/{plate}/{site}', function ($email, $status, $p
     try {
         SendEmailService::sendEmail($email, $status, $plate, $site);
     } catch (Exception $e) {
-        return response()->json(['message' => $e->getMessage()], 500);
+        dd($e->getMessage());
     }
 });
