@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\VehicleToApprove;
+use App\Models\User;
 use App\Models\Vehicle;
+use App\Services\SendEmailService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Requests\VehicleRequest;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
-use Illuminate\Support\Facades\Validator;
-use Closure;
 class VehicleController extends Controller
 {
     /**
@@ -56,7 +57,13 @@ class VehicleController extends Controller
             'has_conadis_distinctive.required' => 'El distintivo CONADIS es requerido',
         ]);
 
-        Vehicle::create($data);
+        $vehicle = Vehicle::create($data);
+        $content = new VehicleToApprove($vehicle);
+        $content = $content->render();
+        $users = User::role(User::ROLE_ADMINISTRATIVE)->get();
+        foreach ($users as $user) {
+            SendEmailService::sendEmail($user->email, 'Nuevo vehiculo registrado', $content);
+        }
 
         return Redirect::route('vehicles.index')
             ->with('success', 'Vehiculo creado correctamente');
