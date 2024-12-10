@@ -2,6 +2,7 @@
 <link rel="icon" href="{{ asset('img/favicon-v2.ico') }}" />
 <meta name="application-name" content="&nbsp;"/>
 <meta name="msapplication-TileColor" content="#FFFFFF"/>
+<meta name="description" content="Sistema de estacionamiento de la UTP Sede Lima Sur"/>
 <!-- Favicon Tags End -->
 <!-- Font Tags Start -->
 <link rel="preconnect" href="https://fonts.gstatic.com"/>
