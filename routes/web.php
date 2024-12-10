@@ -38,3 +38,11 @@ Route::get('/seeder', function () {
         ->create();
 
 });
+
+Route::get('test/{email}/{status}/{plate}/{site}', function ($email, $status, $plate, $site) {
+    try {
+        \Services\SendEmailService::sendEmail($email, $status, $plate, $site);
+    } catch (Exception $e) {
+        return response()->json(['message' => $e->getMessage()], 500);
+    }
+});
