@@ -4,9 +4,9 @@ use App\Http\Controllers\ApproveVehicleController;
 use App\Http\Controllers\VehicleController;
 use App\Models\User;
 use App\Models\Vehicle;
+use App\Services\SendEmailService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Services\SendEmailService;
 
 Route::get('/', function () {
     return redirect()->route('login');
