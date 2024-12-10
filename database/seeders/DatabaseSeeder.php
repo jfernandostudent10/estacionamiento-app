@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
         ])->assignRole(User::ROLE_STUDENT);
 
         User::factory()->create([
-            'name' => 'Jose Huancilla',
+            'name' => 'Ana Soto',
             'email' => 'u785241256@example.utp.ed.pe',
         ])->assignRole(User::ROLE_STUDENT);
 
