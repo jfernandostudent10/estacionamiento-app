@@ -10,7 +10,7 @@ class SendEmailService
         $client = new \GuzzleHttp\Client();
         $uriBase = config('services.email_java_api_uri_base') . '/api/sendEmail';
         $response = $client->request('POST', $uriBase, [
-            'form_params' => [
+            'json' => [
                 'correo' => $correo,
                 'estado' => $estado,
                 'placa' => $placa,
