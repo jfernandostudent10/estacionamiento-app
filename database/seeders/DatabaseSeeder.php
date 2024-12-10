@@ -28,13 +28,23 @@ class DatabaseSeeder extends Seeder
         ])->assignRole(User::ROLE_SUPER_ADMIN);
 
         User::factory()->create([
-            'name' => 'Student User',
-            'email' => 'student@example.com',
+            'name' => 'Jose Huancilla',
+            'email' => 'u23222220' . User::DOMAIN_UTP,
         ])->assignRole(User::ROLE_STUDENT);
 
         User::factory()->create([
-            'name' => 'Teacher User',
-            'email' => 'teacher@example.com'
+            'name' => 'Jose Huancilla',
+            'email' => 'u785241256@example.utp.ed.pe',
+        ])->assignRole(User::ROLE_STUDENT);
+
+        User::factory()->create([
+            'name' => 'Martin Lozada',
+            'email' => 'c526654150@example.utp.edu.pe',
+        ])->assignRole(User::ROLE_TEACHER);
+
+        User::factory()->create([
+            'name' => 'Carlos Loayza',
+            'email' => 'v458745210@example.utp.edu.pe',
         ])->assignRole(User::ROLE_TEACHER);
 
         User::factory()->create([
