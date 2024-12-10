@@ -22,7 +22,7 @@ return [
     'list_teacher' => 'Lista de profesores',
     'list_vigilant' => 'Lista de vigilantes',
     'list_administrative' => 'Lista de administrativos',
-
+    'subject_to_approve' => 'Vehiculo pendiente de aprobación',
 
 
 

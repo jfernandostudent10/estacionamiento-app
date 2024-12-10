@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\VehicleApproved;
 use App\Models\Vehicle;
+use App\Services\SendEmailService;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -57,6 +59,10 @@ class ApproveVehicleController extends Controller
     {
         $vehicle = Vehicle::find($id);
         $vehicle->update(['is_approved' => true, 'approved_by' => auth()->id()]);
+
+        $content = new VehicleApproved($vehicle);
+        $content = $content->render();
+        SendEmailService::sendEmail($vehicle->user->email, 'Vehiculo Aprobado', $content);
 
         return redirect()->route('approve-vehicles.index')
             ->with('success', 'Vehiculo aprobado correctamente');
