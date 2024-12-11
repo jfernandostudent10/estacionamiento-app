@@ -11,13 +11,18 @@ class SendEmailService
     {
         $client = new \GuzzleHttp\Client();
         $uriBase = config('services.email_java_api_uri_base') . '/api/sendEmail';
+        $token = config('services.email_java_api_token');
         try {
             $response = $client->request('POST', $uriBase, [
                 'json' => [
                     'correo' => $email,
                     'asunto' => $subject,
                     'cuerpo' => $body
-                ]
+                ],
+                'headers' => [
+                    'Authorization' => 'Bearer ' . $token,
+                    'Accept' => 'application/json',
+                ],
             ]);
             return json_decode($response->getBody()->getContents());
         } catch (\Exception $e) {

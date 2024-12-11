@@ -35,6 +35,7 @@ return [
         ],
     ],
 
-    'email_java_api_uri_base' => env('SERVICES_EMAIL_JAVA_API_URI_BASE')
+    'email_java_api_uri_base' => env('SERVICES_EMAIL_JAVA_API_URI_BASE'),
+    'email_java_api_token' => env('SERVICES_EMAIL_JAVA_API_TOKEN')
 
 ];
