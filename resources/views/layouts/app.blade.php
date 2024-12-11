@@ -110,7 +110,7 @@
                                     </a>
                                 </li>
 
-                                @if(auth()->user()->can('vehicles.index') && auth()->user()->hasRole('student'))
+                                @if(auth()->user()->can('vehicles.index') && (auth()->user()->hasRole('student') || auth()->user()->hasRole('teacher')))
                                     <li>
                                         <a href="{{ route('vehicles.index') }}">
                                             <i data-acorn-icon="car" class="icon d-none" data-acorn-size="18"></i>
