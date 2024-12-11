@@ -29,13 +29,3 @@ Route::group(['middleware' => 'auth'], function () {
     })->can('users.index')->name('users.index');
 });
 
-Route::get('/seeder', function () {
-    User::factory()
-        ->has(
-            Vehicle::factory()
-                ->count(5)
-        )
-        ->count(10)
-        ->create();
-
-});
